@@ -53,7 +53,7 @@ function displayFotos(){
 
     setTagAttributes(item,{
       href:photo.links.html,
-      target: '_blank'
+      target: '_blank',
     })    
 
     //create <img>
@@ -68,10 +68,16 @@ function displayFotos(){
       src: photo.urls.regular,
       alt: photo.alt_description,
       title: photo.alt_description,
+      class: "photos"      
     })
 
     /*<<<< CHECK WHEN EACH IS FINISHE LOADING >>>>*/
     img.addEventListener('load', imageLoaded);
+    
+    setTimeout(() => {
+      img.classList.add("unsp-photo");
+    }, 1000);
+
     // image inside <a>
     item.appendChild(img);
     imageContainer.appendChild(item);
